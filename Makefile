@@ -6,13 +6,13 @@
 #    By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/27 19:33:21 by vtenigin          #+#    #+#              #
-#    Updated: 2016/12/27 21:20:30 by vtenigin         ###   ########.fr        #
+#    Updated: 2016/12/27 22:05:04 by vtenigin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-FILES = main.c
+FILES = main.c push_swap.c
 
 OBJECTS = $(FILES:.c=.o)
 

@@ -6,11 +6,10 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/27 19:22:27 by vtenigin          #+#    #+#             */
-/*   Updated: 2016/12/27 21:30:07 by vtenigin         ###   ########.fr       */
+/*   Updated: 2016/12/27 22:03:58 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h> // delete
 #include "push_swap.h"
 
 void	showerr(void)
@@ -61,49 +60,7 @@ int		ft_isnumber(char *n)
 	return (1);
 }
 
-int		isdup(long long l, t_env *env)
-{
-	int i;
 
-	i = 0;
-	while (i < env->lena)
-		if (l == (long long)env->a[i++])
-			return (1);
-	return (0);
-}
-
-void	readinput(char **av, t_env *env)
-{
-	long long	l;
-
-	env->lena = 0;
-	env->lenb = 0;
-	while (av[env->lena])
-		if (!ft_isnumber(av[env->lena++]))
-			showerr();
-	env->a = (int *)malloc(sizeof(int) * env->lena);
-	env->b = (int *)malloc(sizeof(int) * env->lena);
-	env->lena = 0;
-	while (av[env->lena])
-	{
-		l = ft_atoll(av[env->lena]);
-		if (l > 2147483647 || l < -2147483648 || isdup(l, env))
-			showerr();
-		else
-			env->a[env->lena++] = (int)l;
-	}
-}
-
-void	push_swap(char **av)
-{
-	t_env env;
-	int	i;
-
-	readinput(av, &env);
-	i = 0;
-	while (i < env.lena)
-		printf("%d\n", env.a[i++]);
-}
 
 int		main(int ac, char **av)
 {

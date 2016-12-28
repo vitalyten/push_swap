@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/09/24 15:47:15 by vtenigin          #+#    #+#              #
-#    Updated: 2016/12/27 19:31:27 by vtenigin         ###   ########.fr        #
+#    Created: 2016/12/10 19:17:22 by vtenigin          #+#    #+#              #
+#    Updated: 2016/12/27 22:00:05 by vtenigin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,6 @@ SRC = 	$(PATH_SRC)ft_strlen.c \
 		$(PATH_SRC)ft_strnequ.c \
 		$(PATH_SRC)ft_strsub.c \
 		$(PATH_SRC)ft_strjoin.c \
-		$(PATH_SRC)ft_strnjoin.c \
 		$(PATH_SRC)ft_strtrim.c \
 		$(PATH_SRC)ft_strsplit.c \
 		$(PATH_SRC)ft_strrev.c \
@@ -83,7 +82,20 @@ SRC = 	$(PATH_SRC)ft_strlen.c \
 		$(PATH_SRC)ft_atol.c \
 		$(PATH_SRC)get_next_line.c \
 		$(PATH_SRC)ft_atoi_base.c \
-		$(PATH_SRC)ft_atoi.c
+		$(PATH_SRC)ft_atoi.c \
+		$(PATH_SRC)ft_strnjoin.c \
+		$(PATH_SRC)ft_printf.c \
+		$(PATH_SRC)settype.c \
+		$(PATH_SRC)setwidth.c \
+		$(PATH_SRC)toabase.c \
+		$(PATH_SRC)dconv.c \
+		$(PATH_SRC)sconv.c \
+		$(PATH_SRC)xconv.c \
+		$(PATH_SRC)cconv.c \
+		$(PATH_SRC)uconv.c \
+		$(PATH_SRC)oconv.c \
+		$(PATH_SRC)pconv.c \
+		$(PATH_SRC)wchar.c
 
 OBJ = $(patsubst %.c,%.o,$(SRC))
 
