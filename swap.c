@@ -6,9 +6,11 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 17:28:05 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/05 17:38:58 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/05 19:09:56 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 /*
 sa : swap a - swap the first 2 elements at the top of stack a.

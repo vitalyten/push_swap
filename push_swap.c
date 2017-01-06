@@ -6,11 +6,12 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/27 21:42:26 by vtenigin          #+#    #+#             */
-/*   Updated: 2016/12/27 22:11:00 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/05 19:28:42 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h> // delete
 
 int		isdup(long long l, t_en *env)
 {
@@ -45,13 +46,81 @@ void	readinput(char **av, t_en *env)
 	}
 }
 
+void dispstack(t_en *env)
+{
+	int	i;
+
+	i = 0;
+	while (i < env->lena || i < env->lenb)
+	{
+		if (i < env->lena)
+			ft_printf("%6d", env->a[i]);
+		else
+			ft_printf("      ");
+		if (i < env->lenb)
+			ft_printf("%6d", env->b[i]);
+		ft_printf("\n");
+		i++;
+	}
+	ft_printf("\n");
+}
+
 void	push_swap(char **av)
 {
 	t_en env;
-	int	i;
+	char str[10];
 
 	readinput(av, &env);
-	i = 0;
-	while (i < env.lena)
-		ft_printf("%d\n", env.a[i++]);
+	dispstack(&env);
+	while (1)
+	{
+		scanf("%s", str);
+		if (!ft_strcmp(str, "pa"))
+			pa(&env);
+		if (!ft_strcmp(str, "pb"))
+			pb(&env);
+		if (!ft_strcmp(str, "sa"))
+			sa(&env);
+		if (!ft_strcmp(str, "sb"))
+			sb(&env);
+		if (!ft_strcmp(str, "ss"))
+			ss(&env);
+		if (!ft_strcmp(str, "ra"))
+			ra(&env);
+		if (!ft_strcmp(str, "rb"))
+			rb(&env);
+		if (!ft_strcmp(str, "rr"))
+			rr(&env);
+		if (!ft_strcmp(str, "rra"))
+			rra(&env);
+		if (!ft_strcmp(str, "rrb"))
+			rrb(&env);
+		if (!ft_strcmp(str, "rrr"))
+			rrr(&env);
+		dispstack(&env);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

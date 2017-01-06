@@ -6,9 +6,11 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 18:10:59 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/05 18:40:56 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/05 19:36:25 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 /*
 rra : reverse rotate a - shift down all elements of stack a by 1.
@@ -25,8 +27,8 @@ void	rra(t_en *env)
 
 	if (env->lena > 1)
 	{
-		i = env->lena - 1;
-		tmp = env->a[i];
+		i = env->lena;
+		tmp = env->a[i - 1];
 		while (--i)
 			env->a[i] = env->a[i - 1];
 		env->a[i] = tmp;
@@ -40,8 +42,8 @@ void	rrb(t_en *env)
 
 	if (env->lenb > 1)
 	{
-		i = env->lenb - 1;
-		tmp = env->b[i];
+		i = env->lenb;
+		tmp = env->b[i - 1];
 		while (--i)
 			env->b[i] = env->b[i - 1];
 		env->b[i] = tmp;

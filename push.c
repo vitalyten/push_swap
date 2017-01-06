@@ -6,9 +6,11 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 17:37:22 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/05 17:54:58 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/05 19:11:01 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 /*
 pa : push a - take the first element at the top of b and put it at the top of a.
@@ -30,7 +32,7 @@ void	pa(t_en *env)
 		++env->lena;
 		i = -1;
 		while (++i < env->lenb - 1)
-			env->b[i] = env-b[i + 1];
+			env->b[i] = env->b[i + 1];
 		--env->lenb;
 	}
 }

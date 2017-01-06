@@ -6,9 +6,11 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 17:57:47 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/05 18:39:05 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/05 19:09:41 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 /*
 ra : rotate a - shift up all elements of stack a by 1.
