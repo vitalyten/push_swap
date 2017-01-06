@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 17:28:05 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/05 17:34:04 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/05 17:38:58 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ sb : swap b - swap the first 2 elements at the top of stack b.
 ss : sa and sb at the same time.
 */
 
-void	sa(t_env *env)
+void	sa(t_en *env)
 {
 	int	tmp;
 
@@ -30,7 +30,7 @@ void	sa(t_env *env)
 	}
 }
 
-void	sb(t_env *env)
+void	sb(t_en *env)
 {
 	int	tmp;
 
@@ -42,7 +42,7 @@ void	sb(t_env *env)
 	}
 }
 
-void	ss(t_env *env)
+void	ss(t_en *env)
 {
 	sa(env);
 	sb(env);

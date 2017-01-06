@@ -1,55 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rot.c                                              :+:      :+:    :+:   */
+/*   revrot.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/05 17:57:47 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/05 18:39:05 by vtenigin         ###   ########.fr       */
+/*   Created: 2017/01/05 18:10:59 by vtenigin          #+#    #+#             */
+/*   Updated: 2017/01/05 18:40:56 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-ra : rotate a - shift up all elements of stack a by 1.
-				The first element becomes the last one.
-rb : rotate b - shift up all elements of stack b by 1.
-				The first element becomes the last one.
-rr : ra and rb at the same time.
+rra : reverse rotate a - shift down all elements of stack a by 1.
+						The flast element becomes the first one.
+rrb : reverse rotate b - shift down all elements of stack b by 1.
+						The flast element becomes the first one.
+rrr : rra and rrb at the same time.
 */
 
-void	ra(t_en *env)
+void	rra(t_en *env)
 {
 	int	i;
 	int	tmp;
 
 	if (env->lena > 1)
 	{
-		i = -1;
-		tmp = env->a[0];
-		while (++i < env->lena - 1)
-			env->a[i] = env->a[i + 1];
+		i = env->lena - 1;
+		tmp = env->a[i];
+		while (--i)
+			env->a[i] = env->a[i - 1];
 		env->a[i] = tmp;
 	}
 }
 
-void	rb(t_en *env)
+void	rrb(t_en *env)
 {
 	int	i;
 	int	tmp;
 
 	if (env->lenb > 1)
 	{
-		i = -1;
-		tmp = env->b[0];
-		while (++i < env->lenb - 1)
-			env->b[i] = env->b[i + 1];
+		i = env->lenb - 1;
+		tmp = env->b[i];
+		while (--i)
+			env->b[i] = env->b[i - 1];
 		env->b[i] = tmp;
 	}
 }
 
-void rr(t_en *env)
+void rrr(t_en *env)
 {
-	ra(env);
-	rb(env);
+	rra(env);
+	rrb(env);
 }
