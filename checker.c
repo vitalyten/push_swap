@@ -6,13 +6,13 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 20:46:21 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/05 20:07:23 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/05 20:25:20 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(char **av)
+void	checker(char **av)
 {
 	t_en env;
 
