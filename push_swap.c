@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/27 21:42:26 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/06 16:56:57 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/07 14:00:40 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ void	dispstack(t_en *env)
 	while (i < env->lena || i < env->lenb)
 	{
 		if (i < env->lena)
-			ft_printf("%6d%%", env->a[i]);
+			ft_printf("%6d", env->a[i]);
 		else
 			ft_printf("      ");
 		if (i < env->lenb)
-			ft_printf("%6d%%", env->b[i]);
+			ft_printf("%6d", env->b[i]);
 		ft_printf("\n");
 		i++;
 	}

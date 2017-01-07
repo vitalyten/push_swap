@@ -6,24 +6,90 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 20:46:21 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/05 20:25:20 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/07 15:44:01 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int		isop(char *str)
+{
+	if (ft_strlen(str) > 0)
+	{
+		if (!ft_strcmp(str, "pa") ||
+			!ft_strcmp(str, "pb") ||
+			!ft_strcmp(str, "sa") ||
+			!ft_strcmp(str, "sb") ||
+			!ft_strcmp(str, "ss") ||
+			!ft_strcmp(str, "ra") ||
+			!ft_strcmp(str, "rb") ||
+			!ft_strcmp(str, "rr") ||
+			!ft_strcmp(str, "rra") ||
+			!ft_strcmp(str, "rrb") ||
+			!ft_strcmp(str, "rrr"))
+			return (1);
+		else
+			showerr();
+	}
+	return (0);
+}
+
+void	addop(t_ops *ops, char *str)
+{
+	ops = (t_ops *)malloc(sizeof(t_ops));
+	ops->next = NULL;
+	if (!ft_strcmp(str, "pa"))
+		ops->op = PA;
+	if (!ft_strcmp(str, "pb"))
+		ops->op = PB;
+	if (!ft_strcmp(str, "sa"))
+		ops->op = SA;
+	if (!ft_strcmp(str, "sb"))
+		ops->op = SB;
+	if (!ft_strcmp(str, "ss"))
+		ops->op = SS;
+	if (!ft_strcmp(str, "ra"))
+		ops->op = RA;
+	if (!ft_strcmp(str, "rb"))
+		ops->op = RB;
+	if (!ft_strcmp(str, "rr"))
+		ops->op = RR;
+	if (!ft_strcmp(str, "rra"))
+		ops->op = RRA;
+	if (!ft_strcmp(str, "rrb"))
+		ops->op = RRB;
+	if (!ft_strcmp(str, "rrr"))
+		ops->op = RRR;
+	ops = ops->next;
+}
+
 void	checker(char **av)
 {
-	t_en env;
+	t_en	env;
+	char	*str;
+	t_ops	*ops;
+	t_ops	*first;
 
+	ops = NULL;
+	first = ops;
 	readinput(av, &env);
 	dispstack(&env);
+	while (get_next_line(0, &str) > 0 && isop(str))
+	{
+		// ft_printf("%s\n", str);
+		addop(ops, str);
+	}
+	while (first)
+	{
+		ft_printf("%d\n", first->op);
+		first = first->next;
+	}
 }
 
 int		main(int ac, char **av)
 {
 	if (ac == 1)
-		showerr();
+		exit(-1);
 	checker(av + 1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/27 19:22:27 by vtenigin          #+#    #+#             */
-/*   Updated: 2016/12/27 22:03:58 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/07 13:58:45 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ int		ft_isnumber(char *n)
 
 
 
-int		main(int ac, char **av)
-{
-	if (ac == 1)
-		showerr();
-	push_swap(av + 1);
-	return (0);
-}
+// int		main(int ac, char **av)
+// {
+// 	if (ac == 1)
+// 		exit(-1);
+// 	push_swap(av + 1);
+// 	return (0);
+// }

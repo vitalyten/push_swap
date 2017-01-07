@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/27 19:26:11 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/05 18:52:52 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/07 14:15:45 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,19 @@ typedef struct	s_en
 	int	mv;
 }				t_en;
 
+typedef enum	e_op
+{
+	SA, SB, SS, PA, PB, RA, RB, RR, RRA, RRB, RRR
+}				t_op;
+
+typedef struct	s_ops
+{
+	t_op			op;
+	struct s_ops	*next;
+}				t_ops;
+
 void		push_swap(char **av);
+void		dispstack(t_en *env);
 void		readinput(char **av, t_en *env);
 int			isdup(long long l, t_en *env);
 int			ft_isnumber(char *n);
