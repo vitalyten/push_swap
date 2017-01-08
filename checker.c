@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 20:46:21 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/07 15:44:01 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/07 16:52:16 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		isop(char *str)
 	return (0);
 }
 
-void	addop(t_ops *ops, char *str)
+t_ops	*addop(t_ops *ops, char *str)
 {
 	ops = (t_ops *)malloc(sizeof(t_ops));
 	ops->next = NULL;
@@ -60,7 +60,38 @@ void	addop(t_ops *ops, char *str)
 		ops->op = RRB;
 	if (!ft_strcmp(str, "rrr"))
 		ops->op = RRR;
-	ops = ops->next;
+	return (ops);
+}
+
+void	runops(t_en *env, t_ops *ops)
+{
+	while (ops)
+	{
+		if (ops->op == PA)
+			pa(env);
+		if (ops->op == PB)
+			pb(env);
+		if (ops->op == SA)
+			sa(env);
+		if (ops->op == SB)
+			sb(env);
+		if (ops->op == SS)
+			ss(env);
+		if (ops->op == RA)
+			ra(env);
+		if (ops->op == RB)
+			rb(env);
+		if (ops->op == RR)
+			rr(env);
+		if (ops->op == RRA)
+			rra(env);
+		if (ops->op == RRB)
+			rrb(env);
+		if (ops->op == RRR)
+			rrr(env);
+		dispstack(env);
+		ops = ops->next;
+	}
 }
 
 void	checker(char **av)
@@ -68,22 +99,22 @@ void	checker(char **av)
 	t_en	env;
 	char	*str;
 	t_ops	*ops;
-	t_ops	*first;
 
-	ops = NULL;
-	first = ops;
+	ops = (t_ops *)malloc(sizeof(t_ops));
+	ops->next = NULL;
+	ops->prev = NULL;
+	ops->op = HEAD;
 	readinput(av, &env);
 	dispstack(&env);
 	while (get_next_line(0, &str) > 0 && isop(str))
 	{
-		// ft_printf("%s\n", str);
-		addop(ops, str);
+		ops->next = addop(ops->next, str);
+		ops->next->prev = ops;
+		ops = ops->next;
 	}
-	while (first)
-	{
-		ft_printf("%d\n", first->op);
-		first = first->next;
-	}
+	while (ops->prev->op)
+		ops = ops->prev;
+	runops(&env, ops);
 }
 
 int		main(int ac, char **av)

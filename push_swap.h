@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/27 19:26:11 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/07 14:15:45 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/07 16:21:17 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,22 @@ typedef struct	s_en
 	int	*b;
 	int	lena;
 	int	lenb;
-	int	topa;
-	int	topb;
-	int	sp;
-	int	mv;
+	// int	topa;
+	// int	topb;
+	// int	sp;
+	// int	mv;
 }				t_en;
 
 typedef enum	e_op
 {
-	SA, SB, SS, PA, PB, RA, RB, RR, RRA, RRB, RRR
+	HEAD, SA, SB, SS, PA, PB, RA, RB, RR, RRA, RRB, RRR
 }				t_op;
 
 typedef struct	s_ops
 {
 	t_op			op;
 	struct s_ops	*next;
+	struct s_ops	*prev;
 }				t_ops;
 
 void		push_swap(char **av);
