@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/27 19:26:11 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/07 16:21:17 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/07 17:52:37 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,20 @@ typedef struct	s_en
 	// int	mv;
 }				t_en;
 
-typedef enum	e_op
-{
-	HEAD, SA, SB, SS, PA, PB, RA, RB, RR, RRA, RRB, RRR
-}				t_op;
+// typedef enum	e_op
+// {
+// 	HEAD, SA, SB, SS, PA, PB, RA, RB, RR, RRA, RRB, RRR
+// }				t_op;
 
-typedef struct	s_ops
-{
-	t_op			op;
-	struct s_ops	*next;
-	struct s_ops	*prev;
-}				t_ops;
+// typedef struct	s_ops
+// {
+// 	t_op			op;
+// 	struct s_ops	*next;
+// 	struct s_ops	*prev;
+// }				t_ops;
 
 void		push_swap(char **av);
+int			isop(char *str);
 void		dispstack(t_en *env);
 void		readinput(char **av, t_en *env);
 int			isdup(long long l, t_en *env);

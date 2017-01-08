@@ -6,75 +6,21 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/27 21:42:26 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/07 14:00:40 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/07 17:25:06 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h> // delete
-
-int		isdup(long long l, t_en *env)
-{
-	int i;
-
-	i = 0;
-	while (i < env->lena)
-		if (l == (long long)env->a[i++])
-			return (1);
-	return (0);
-}
-
-void	readinput(char **av, t_en *env)
-{
-	long long	l;
-
-	env->lena = 0;
-	env->lenb = 0;
-	while (av[env->lena])
-		if (!ft_isnumber(av[env->lena++]))
-			showerr();
-	env->a = (int *)malloc(sizeof(int) * env->lena);
-	env->b = (int *)malloc(sizeof(int) * env->lena);
-	env->lena = 0;
-	while (av[env->lena])
-	{
-		l = ft_atoll(av[env->lena]);
-		if (l > 2147483647 || l < -2147483648 || isdup(l, env))
-			showerr();
-		else
-			env->a[env->lena++] = (int)l;
-	}
-}
-
-void	dispstack(t_en *env)
-{
-	int	i;
-
-	i = 0;
-	while (i < env->lena || i < env->lenb)
-	{
-		if (i < env->lena)
-			ft_printf("%6d", env->a[i]);
-		else
-			ft_printf("      ");
-		if (i < env->lenb)
-			ft_printf("%6d", env->b[i]);
-		ft_printf("\n");
-		i++;
-	}
-	ft_printf("\n");
-}
 
 void	push_swap(char **av)
 {
 	t_en env;
-	char str[10];
+	char *str;
 
 	readinput(av, &env);
 	dispstack(&env);
-	while (1)
+	while (get_next_line(0, &str) > 0 && isop(str))
 	{
-		scanf("%s", str);
 		if (!ft_strcmp(str, "pa"))
 			pa(&env);
 		if (!ft_strcmp(str, "pb"))
@@ -101,26 +47,10 @@ void	push_swap(char **av)
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+int		main(int ac, char **av)
+{
+	if (ac == 1)
+		exit(-1);
+	push_swap(av + 1);
+	return (0);
+}
