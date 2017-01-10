@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/07 17:22:14 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/07 17:39:46 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/08 15:21:30 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,22 @@ void	showerr(void)
 	// 	free(env->b);
 	// }
 	exit(-1);
+}
+
+int		issort(t_en *env)
+{
+	int i;
+
+	i = -1;
+	if (env->lenb == 0)
+	{
+		while (++i < env->lena - 1)
+			if (env->a[i] > env->a[i + 1])
+				return(0);
+		return (1);
+	}
+	else
+		return (0);
 }
 
 int		isop(char *str)

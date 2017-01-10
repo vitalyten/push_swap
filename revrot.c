@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 18:10:59 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/05 19:36:25 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/08 20:23:24 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ rrb : reverse rotate b - shift down all elements of stack b by 1.
 rrr : rra and rrb at the same time.
 */
 
-void	rra(t_en *env)
+void	rra(t_en *env, int disp)
 {
 	int	i;
 	int	tmp;
@@ -32,10 +32,12 @@ void	rra(t_en *env)
 		while (--i)
 			env->a[i] = env->a[i - 1];
 		env->a[i] = tmp;
+		if (disp)
+			ft_printf("rra\n");
 	}
 }
 
-void	rrb(t_en *env)
+void	rrb(t_en *env, int disp)
 {
 	int	i;
 	int	tmp;
@@ -47,11 +49,15 @@ void	rrb(t_en *env)
 		while (--i)
 			env->b[i] = env->b[i - 1];
 		env->b[i] = tmp;
+		if (disp)
+			ft_printf("rrb\n");
 	}
 }
 
-void rrr(t_en *env)
+void rrr(t_en *env, int disp)
 {
-	rra(env);
-	rrb(env);
+	rra(env, 0);
+	rrb(env, 0);
+	if (disp)
+		ft_printf("rrr\n");
 }

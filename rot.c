@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 17:57:47 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/05 19:09:41 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/08 20:21:35 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ rb : rotate b - shift up all elements of stack b by 1.
 rr : ra and rb at the same time.
 */
 
-void	ra(t_en *env)
+void	ra(t_en *env, int disp)
 {
 	int	i;
 	int	tmp;
@@ -32,10 +32,12 @@ void	ra(t_en *env)
 		while (++i < env->lena - 1)
 			env->a[i] = env->a[i + 1];
 		env->a[i] = tmp;
+		if (disp)
+			ft_printf("ra\n");
 	}
 }
 
-void	rb(t_en *env)
+void	rb(t_en *env, int disp)
 {
 	int	i;
 	int	tmp;
@@ -47,11 +49,53 @@ void	rb(t_en *env)
 		while (++i < env->lenb - 1)
 			env->b[i] = env->b[i + 1];
 		env->b[i] = tmp;
+		if (disp)
+			ft_printf("rb\n");
 	}
 }
 
-void rr(t_en *env)
+void rr(t_en *env, int disp)
 {
-	ra(env);
-	rb(env);
+	ra(env, 0);
+	rb(env, 0);
+	if (disp)
+		ft_printf("rr\n");
 }
+
+// void	ra(t_en *env)
+// {
+// 	int	i;
+// 	int	tmp;
+
+// 	if (env->lena > 1)
+// 	{
+// 		i = -1;
+// 		tmp = env->a[0];
+// 		while (++i < env->lena - 1)
+// 			env->a[i] = env->a[i + 1];
+// 		env->a[i] = tmp;
+// 		ft_printf("ra\n");
+// 	}
+// }
+
+// void	rb(t_en *env)
+// {
+// 	int	i;
+// 	int	tmp;
+
+// 	if (env->lenb > 1)
+// 	{
+// 		i = -1;
+// 		tmp = env->b[0];
+// 		while (++i < env->lenb - 1)
+// 			env->b[i] = env->b[i + 1];
+// 		env->b[i] = tmp;
+// 		ft_printf("rb\n");
+// 	}
+// }
+
+// void rr(t_en *env)
+// {
+// 	ra(env);
+// 	rb(env);
+// }

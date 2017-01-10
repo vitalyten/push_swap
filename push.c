@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 17:37:22 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/05 19:11:01 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/08 20:22:53 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ pb : push b - take the first element at the top of a and put it at the top of b.
 				Do nothing if a is empty.
 */
 
-void	pa(t_en *env)
+void	pa(t_en *env, int disp)
 {
 	int	i;
 
@@ -34,10 +34,12 @@ void	pa(t_en *env)
 		while (++i < env->lenb - 1)
 			env->b[i] = env->b[i + 1];
 		--env->lenb;
+		if (disp)
+			ft_printf("pa\n");
 	}
 }
 
-void	pb(t_en *env)
+void	pb(t_en *env, int disp)
 {
 	int	i;
 
@@ -52,5 +54,7 @@ void	pb(t_en *env)
 		while (++i < env->lena - 1)
 			env->a[i] = env->a[i + 1];
 		--env->lena;
+		if (disp)
+			ft_printf("pb\n");
 	}
 }
