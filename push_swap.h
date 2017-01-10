@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/27 19:26:11 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/09 18:52:56 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/09 19:53:18 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ typedef struct	s_en
 	// int	mv;
 }				t_en;
 
-typedef enum	e_op
-{
-	HEAD, SA, SB, SS, PA, PB, RA, RB, RR, RRA, RRB, RRR
-}				t_op;
+// typedef enum	e_op
+// {
+// 	HEAD, SA, SB, SS, PA, PB, RA, RB, RR, RRA, RRB, RRR
+// }				t_op;
 
-typedef struct	s_ops
-{
-	t_op	*op;
-	int		len;
-}				t_ops;
+// typedef struct	s_ops
+// {
+// 	t_op	*op;
+// 	int		len;
+// }				t_ops;
 
 typedef struct	s_ops
 {
@@ -51,6 +51,7 @@ typedef struct	s_ops
 }				t_ops;
 
 void		push_swap(char **av);
+int			sort(t_en *env);
 void		pushall(t_en *env); // remove
 int			findposb(t_en *env, int j);
 int			findmax(int len, int *arr);

@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/27 21:42:26 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/09 17:43:29 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/09 19:53:37 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ void	push_swap(char **av)
 
 	readinput(av, &env);
 	(issort(&env)) ? exit(1) : 0;
-	// dispstack(&env);
+	dispstack(&env);
+	sort(&env);
 	// pushall(&env);
-	// dispstack(&env);
+	dispstack(&env);
 	// for (int i = 0; i < 10; i++)
 	// {
 	// 	ft_printf("n = %d pos = %d\n", env.a[i], findposb(&env, i));

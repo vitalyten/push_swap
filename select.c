@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/07 19:52:00 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/09 18:54:31 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/09 19:51:13 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,17 @@ n = 42 pos = 2
 n = 36 pos = 5
 n = 30 pos = 7
 
+		nra = i;
+		nrra = env->lena - i;
+		nrb = findposb(env, i);
+		nrrb = env->lenb - findposb(env, i);
+		nrr = psmin(nra, nrb);
+		nrrr = psmin(nrra, nrrb);
+		upup = nrr + nra - nrr + nrb - nrr;
+		dwndwn = nrrr + nrra - nrrr + nrrb - nrrr;
+		updwn = nra + nrrb;
+		dwnup = nrra + nrb;
+
 void	pushall(t_en *env)
 {
 	while (env->lena > 10)
@@ -92,45 +103,130 @@ int	psmax(int a, int b)
 	return ((a > b) ? a : b);
 }
 
-t_ops	*opsalloc(int len)
+t_ops	*filluu(t_en *env, int i)
 {
-	t_ops *ops;
+	t_ops	*uu;
+	int		nra;
+	int		nrb;
 
-	ops = (t_ops *)malloc(sizeof(t_ops));
-	ops->op = (t_op *)malloc(sizeof(t_op * len));
-	ops->len = len;
-	return (ops);
+	uu = (t_ops *)malloc(sizeof(t_ops));
+	nra = i;
+	nrb = findposb(env, i);
+	uu->nrr = psmin(nra, nrb);
+	uu->nra = nra - uu->nrr;
+	uu->nrb = nrb - uu->nrr;
+	uu->nrra = 0;
+	uu->nrrb = 0;
+	uu->nrrr = 0;
+	uu->len = uu->nrr + uu->nra + uu->nrb;
+	return (uu);
+}
+
+t_ops	*filldd(t_en *env, int i)
+{
+	t_ops	*dd;
+	int		nrra;
+	int		nrrb;
+
+	dd = (t_ops *)malloc(sizeof(t_ops));
+	nrra = env->lena - i;
+	nrrb = env->lenb - findposb(env, i);
+	dd->nrrr = psmin(nrra, nrrb);
+	dd->nrra = nrra - dd->nrrr;
+	dd->nrrb = nrrb - dd->nrrr;
+	dd->nra = 0;
+	dd->nrb = 0;
+	dd->nrr = 0;
+	dd->len = dd->nrrr + dd->nrra + dd->nrrb;
+	return (dd);
+}
+
+t_ops	*fillud(t_en *env, int i)
+{
+	t_ops	*ud;
+
+	ud = (t_ops *)malloc(sizeof(t_ops));
+	ud->nra = i;
+	ud->nrrb = env->lenb - findposb(env, i);
+	ud->nrb = 0;
+	ud->nrr = 0;
+	ud->nrra = 0;
+	ud->nrrr = 0;
+	ud->len = ud->nra + ud->nrrb;
+	return (ud);
+}
+
+t_ops	*filldu(t_en *env, int i)
+{
+	t_ops	*du;
+
+	du = (t_ops *)malloc(sizeof(t_ops));
+	du->nrra = env->lena - i;
+	du->nrb = findposb(env, i);
+	du->nra = 0;
+	du->nrr = 0;
+	du->nrrb = 0;
+	du->nrrr = 0;
+	du->len = du->nrra + du->nrb;
+	return (du);
+}
+
+void runop(t_ops *op, t_en *env)
+{
+	int i;
+
+	i = 0;
+	while (i < op->nra)
+		ra(env, 1);
+	i = 0;
+	while (i < op->nrb)
+		rb(env, 1);
+	i = 0;
+	while (i < op->nrr)
+		rr(env, 1);
+	i = 0;
+	while (i < op->nrra)
+		rra(env, 1);
+	i = 0;
+	while (i < op->nrrb)
+		rrb(env, 1);
+	i = 0;
+	while (i < op->nrrr)
+		rrr(env, 1);
+	pb(env, 1);
+}
+
+void	execop(t_ops *ops[], t_en *env)
+{
+	int	i;
+	t_ops *ex;
+
+	i = 0;
+	ex = ops[0];
+	while (++i < 4)
+		if (ops[i]->len < ex->len)
+			ex = ops[i];
+	runop(ex, env);
 }
 
 void	findminrot(t_en *env)
 {
 	int	i;
+	t_ops *ops[4];
 
 	i = -1;
 	while (++i < env->lena)
 	{
-		nra = i;
-		nrra = env->lena - i;
-		nrb = findposb(env, i);
-		nrrb = env->lenb - findposb(env, i);
-		nrr = psmin(nra, nrb);
-		nrrr = psmin(nrra, nrrb);
-		upup = nrr + nra - nrr + nrb - nrr;
-		dwndwn = nrrr + nrra - nrrr + nrrb - nrrr;
-		updwn = nra + nrrb;
-		dwnup = nrra + nrb;
-		uu = opsalloc(upup);
-		dd = opsalloc(dwndwn);
-		ud = opsalloc(updwn);
-		du = opsalloc(dwnup);
-		while ()
+		ops[0] = filluu(env, i);
+		ops[1] = filldd(env, i);
+		ops[2] = fillud(env, i);
+		ops[3] = filldu(env, i);
+		execop(ops, env);
 	}
 }
 
 int		sort(t_en *env)
 {
-	int	imin;
-
 	if (env->lena > 2)
 	{
 		pb(env, 1);
@@ -139,18 +235,7 @@ int		sort(t_en *env)
 			sb(env, 1);
 	}
 	while (env->lena > 2)
-	{
-		imin = findmin(env->lena, env->a);
-		// ft_printf("min = %d\n", env->a[imin]);
-		if (imin <= env->lena / 2)
-			while (imin--)
-				ra(env, 1);
-		else
-			while (imin++ < env->lena)
-				rra(env, 1);
-		pb(env, 1);
-	}
-	// ft_printf("a0 = %d a1 = %d\n", env->a[0], env->a[1]);
+		findminrot(env);
 	if (env->lena == 2)
 		if(env->a[0] > env->a[1])
 			sa(env, 1);
