@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/27 21:42:26 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/10 18:53:29 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/10 19:44:46 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,15 @@ int		sort(t_en *env)
 
 void	push_swap(char **av)
 {
-	t_en env;
+	t_en	env;
 
 	readinput(av, &env);
 	if (issort(&env))
 		exit(1);
-	sort(&env);
+	if (env.lena < 6)
+		select_sort(&env);
+	else
+		sort(&env);
 	free(env.a);
 	free(env.b);
 }

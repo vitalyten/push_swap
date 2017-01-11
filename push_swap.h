@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/27 19:26:11 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/10 18:55:57 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/10 20:09:41 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int				sort(t_en *env);
 int				findposb(t_en *env, int j);
 int				findmax(int len, int *arr);
 int				findmin(int len, int *arr);
-int				select_sort(t_en *env);
+void			select_sort(t_en *env);
 int				isop(char *str);
 int				issort(t_en *env);
 void			dispstack(t_en *env);
