@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/27 19:26:11 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/09 19:53:18 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/10 15:44:25 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,16 @@ typedef struct	s_ops
 }				t_ops;
 
 void		push_swap(char **av);
+t_ops		*filluu(t_en *env, int i);
+t_ops		*filldd(t_en *env, int i);
+t_ops		*fillud(t_en *env, int i);
+t_ops		*filldu(t_en *env, int i);
+void 		runop(t_ops *op, t_en *env);
+t_ops		*execop(t_ops *ops[]);//, t_en *env);
+void		findminrot(t_en *env);
+int			psmin(int a, int b);
+int			psmax(int a, int b);
 int			sort(t_en *env);
-void		pushall(t_en *env); // remove
 int			findposb(t_en *env, int j);
 int			findmax(int len, int *arr);
 int			findmin(int len, int *arr);

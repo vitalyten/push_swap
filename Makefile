@@ -6,14 +6,15 @@
 #    By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/27 19:33:21 by vtenigin          #+#    #+#              #
-#    Updated: 2017/01/07 20:40:54 by vtenigin         ###   ########.fr        #
+#    Updated: 2017/01/10 14:53:28 by vtenigin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME1 = push_swap
 NAME2 = checker
 
-FILES1 = push_swap.c readinput.c swap.c push.c rot.c revrot.c select.c
+FILES1 = push_swap.c readinput.c swap.c push.c rot.c revrot.c select.c \
+		fillop.c sort.c
 FILES2 = checker.c readinput.c swap.c push.c rot.c revrot.c
 
 OBJECTS1 = $(FILES1:.c=.o)
