@@ -6,18 +6,11 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 17:37:22 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/08 20:22:53 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/10 18:43:30 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*
-pa : push a - take the first element at the top of b and put it at the top of a.
-				Do nothing if b is empty.
-pb : push b - take the first element at the top of a and put it at the top of b.
-				Do nothing if a is empty.
-*/
 
 void	pa(t_en *env, int disp)
 {
