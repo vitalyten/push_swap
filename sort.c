@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 14:52:07 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/01/10 19:21:27 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/01/11 14:03:55 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	bestop(t_ops **list, t_en *env)
 			best = list[i];
 	runop(best, env);
 	i = -1;
-	while (++i < env->lena)
+	while (++i <= env->lena)
 		free(list[i]);
 	free(list);
 }
